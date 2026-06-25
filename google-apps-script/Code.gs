@@ -53,7 +53,7 @@ var CONFIG = {
   EVENT_DATE: 'Saturday, 15 August 2026',
   EVENT_TIME: '10:00 AM onwards',
   EVENT_VENUE: 'Main Auditorium & Campus Grounds, University of Excellence',
-  CONTACT_EMAIL: 'alumni2026@university.edu',
+  CONTACT_EMAIL: 'alumini2026@university.edu',
   CONTACT_PHONE: '+91 98765 43210'
 };
 
@@ -245,7 +245,7 @@ function generateFoodToken_(foodPreference, totalPersons, sheet) {
     for (var i = 0; i < 5; i++) {
       random += chars.charAt(Math.floor(Math.random() * chars.length));
     }
-    token = 'ALMN-' + typeCode + '-' + dateStamp + '-' + random + '-' + personTag;
+    token = 'ALMI-' + typeCode + '-' + dateStamp + '-' + random + '-' + personTag;
     attempts++;
   } while (existingTokens[token] && attempts < 50);
 
