@@ -408,18 +408,61 @@ function generateQRSVG_(text, cell) {
 }
 
 /**
- * Returns a base64-encoded data URI img tag for the given text.
- * Suitable for embedding directly in HTML emails.
- * @param {string} text     Text to encode.
- * @param {number} pxSize   Displayed width/height in the email (default 160).
- * @param {number} cell     Module size in pixels (default 4).
+ * Generates QR code as compact HTML divs using run-length encoding.
+ * Works in ALL email clients. Much smaller HTML than per-cell tables.
+ * Run-length encoding merges consecutive same-color modules into one wide div.
+ *
+ * @param {string} text       Text to encode (keep short for smallest QR).
+ * @param {number} cell       Module size in px (default 3).
+ * @param {string} dark       Dark color (default '#000000').
+ * @param {string} light      Light color (default '#ffffff').
+ */
+function generateQRHtmlTable_(text, cell, dark, light) {
+  cell  = cell  || 3;
+  dark  = dark  || '#000000';
+  light = light || '#ffffff';
+
+  try {
+    var qr = new QRCodeModel(-1, QRErrorCorrectLevel.M);
+    qr.addData(text);
+    qr.make();
+    var n  = qr.getModuleCount();
+    var qz = cell * 3; // quiet zone padding in px
+
+    // Outer wrapper with quiet zone as CSS padding
+    var html = '<div style="display:inline-block;background:' + light
+      + ';padding:' + qz + 'px;line-height:0;font-size:0;">';
+
+    for (var row = 0; row < n; row++) {
+      html += '<div style="display:block;height:' + cell + 'px;white-space:nowrap;">';
+      var col = 0;
+      while (col < n) {
+        var isDark = qr.isDark(row, col);
+        var runLen = 1;
+        // Merge consecutive same-color modules (run-length encoding)
+        while (col + runLen < n && qr.isDark(row, col + runLen) === isDark) runLen++;
+        html += '<span style="display:inline-block;width:' + (runLen * cell)
+          + 'px;height:' + cell + 'px;background:' + (isDark ? dark : light)
+          + ';vertical-align:top;"></span>';
+        col += runLen;
+      }
+      html += '</div>';
+    }
+
+    html += '</div>';
+    Logger.log('QR HTML size: ' + html.length + ' chars (' + Math.round(html.length/1024) + ' KB)');
+    return html;
+
+  } catch (err) {
+    Logger.log('generateQRHtmlTable_ error: ' + err.message);
+    return null;
+  }
+}
+
+/**
+ * @deprecated SVG blocked by email clients — use generateQRHtmlTable_ instead.
  */
 function generateQRImgTag_(text, pxSize, cell) {
-  pxSize = pxSize || 160;
-  var svg = generateQRSVG_(text, cell || 4);
-  if (!svg) return '<div style="padding:8px;color:#666;font-size:11px;">QR error</div>';
-  var b64 = Utilities.base64Encode(svg);
-  return '<img src="data:image/svg+xml;base64,' + b64
-    + '" width="' + pxSize + '" height="' + pxSize
-    + '" alt="Food Token QR Code" style="display:block;border-radius:4px;">';
+  return generateQRHtmlTable_(text, cell || 3, '#000000', '#ffffff') ||
+    '<div style="padding:8px;color:#666;font-size:11px;">QR error</div>';
 }

@@ -293,19 +293,16 @@ function sendConfirmationEmail_(data, foodToken) {
       foodIcon = '🥬'; foodLabel = 'Vegetarian';      foodColor = '#4caf50'; break;
   }
 
-  // Build QR data string
-  var qrData = 'ALUMNI MEET 2026\nToken: ' + foodToken
-    + '\nName: '    + data.fullName
-    + '\nFood: '    + foodLabel
-    + '\nPersons: ' + data.totalPersons
-    + '\nPhone: '   + data.phone
-    + '\nBatch: '   + data.periodOfStudy
-    + '\nDegree: '  + data.degreeStudy;
-
-  // Generate QR code locally — no external API, no internet needed, always works!
-  Logger.log('Generating QR code locally...');
-  var qrImgTag = generateQRImgTag_(qrData, 160, 4);
-  Logger.log('QR generated: ' + (qrImgTag.indexOf('<img') === 0 ? 'SUCCESS' : 'FALLBACK'));
+  // Encode ONLY the food token in QR — short text = tiny QR = tiny HTML
+  // Full details are shown in the email body below
+  Logger.log('Generating QR code for token: ' + foodToken);
+  var qrTableHtml = generateQRHtmlTable_(foodToken, 3, '#000000', '#ffffff');
+  if (qrTableHtml) {
+    Logger.log('QR HTML generated OK');
+  } else {
+    Logger.log('QR generation failed');
+    qrTableHtml = '<div style="padding:8px;color:#333;font-size:11px;word-break:break-all;">' + foodToken + '</div>';
+  }
 
   var htmlBody = '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>'
     + '<body style="margin:0;padding:0;background:#0f0f1a;font-family:Segoe UI,Tahoma,sans-serif;">'
@@ -349,8 +346,8 @@ function sendConfirmationEmail_(data, foodToken) {
     // QR code left | food details right
     + '<tr>'
     + '<td style="padding:20px 12px 20px 22px;vertical-align:middle;width:190px;text-align:center;">'
-    + '<div style="background:#ffffff;padding:8px;border-radius:10px;display:inline-block;">'
-    + qrImgTag
+    + '<div style="background:#ffffff;padding:6px;border-radius:10px;display:inline-block;line-height:0;">'
+    + qrTableHtml
     + '</div>'
     + '<p style="margin:8px 0 0;color:#808090;font-size:10px;">Scan at food counter</p>'
     + '</td>'
