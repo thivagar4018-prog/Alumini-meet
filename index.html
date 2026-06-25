@@ -177,13 +177,33 @@
             </div>
             <div class="form-group">
               <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210">
+              <div class="phone-input-group">
+                <select id="phoneCode" name="phoneCode" class="country-code">
+                  <option value="+91" selected>+91 (IND)</option>
+                  <option value="+1">+1 (USA)</option>
+                  <option value="+44">+44 (GBR)</option>
+                  <option value="+61">+61 (AUS)</option>
+                  <option value="+65">+65 (SGP)</option>
+                  <option value="+971">+971 (UAE)</option>
+                </select>
+                <input type="tel" id="phone" name="phone" required>
+              </div>
             </div>
           </div>
 
           <div class="form-group full-width">
             <label for="whatsapp">WhatsApp Number</label>
-            <input type="tel" id="whatsapp" name="whatsapp" placeholder="+91 98765 43210">
+            <div class="phone-input-group">
+              <select id="whatsappCode" name="whatsappCode" class="country-code">
+                <option value="+91" selected>+91 (IND)</option>
+                <option value="+1">+1 (USA)</option>
+                <option value="+44">+44 (GBR)</option>
+                <option value="+61">+61 (AUS)</option>
+                <option value="+65">+65 (SGP)</option>
+                <option value="+971">+971 (UAE)</option>
+              </select>
+              <input type="tel" id="whatsapp" name="whatsapp">
+            </div>
             <span class="form-hint">Leave blank if same as phone number</span>
           </div>
 

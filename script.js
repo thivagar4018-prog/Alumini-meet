@@ -495,9 +495,10 @@ document.addEventListener('DOMContentLoaded', () => {
         fullName: (document.getElementById('fullName')?.value || '').trim(),
         email: (document.getElementById('email')?.value || '').trim(),
         gender: document.getElementById('gender')?.value || '',
-        phone: (document.getElementById('phone')?.value || '').trim(),
-        whatsapp: (document.getElementById('whatsapp')?.value || '').trim() ||
-                  (document.getElementById('phone')?.value || '').trim(),
+        phone: ((document.getElementById('phoneCode')?.value || '+91') + ' ' + (document.getElementById('phone')?.value || '').trim()).trim(),
+        whatsapp: (document.getElementById('whatsapp')?.value || '').trim() 
+                  ? ((document.getElementById('whatsappCode')?.value || '+91') + ' ' + (document.getElementById('whatsapp')?.value || '').trim()).trim()
+                  : ((document.getElementById('phoneCode')?.value || '+91') + ' ' + (document.getElementById('phone')?.value || '').trim()).trim(),
         periodOfStudy: document.getElementById('periodOfStudy')?.value || '',
         degreeStudy: (document.getElementById('degreeStudy')?.value || '').trim(),
         courseStudy: document.getElementById('courseStudy')?.value || '',
