@@ -1,6 +1,6 @@
-# Alumni Meet 2026 — Registration Website
+# Alumini Meet 2026 — Registration Website
 
-A complete alumni meet registration system with food token generation, QR codes, and Google Sheets integration.
+A complete Alumini Meet registration system with food token generation, QR codes, and Google Sheets integration.
 
 ## 🌟 Features
 - Multi-step registration form with validation
@@ -24,7 +24,7 @@ alumni-meet/
 ## 🚀 Setup Instructions
 
 ### 1. Google Sheets + Apps Script
-1. Create a Google Sheet named `Alumni Meet 2026`
+1. Create a Google Sheet named `Alumini Meet 2026`
 2. Go to **Extensions → Apps Script**
 3. Create two script files:
    - `Code.gs` — paste contents of `google-apps-script/Code.gs`

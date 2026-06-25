@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * ALUMNI MEET 2026 — REGISTRATION & FOOD TOKEN SYSTEM (v2)
+ * Alumini Meet 2026 — REGISTRATION & FOOD TOKEN SYSTEM (v2)
  * Google Apps Script (Web App)
  * ============================================================================
  *
@@ -13,7 +13,7 @@
  * 5. Click  Deploy → New deployment.
  * 6. Select type  "Web app".
  * 7. Set:
- *      • Description  — "Alumni Meet Registration v2"
+ *      • Description  — "Alumini Meet Registration v2"
  *      • Execute as   — "Me"
  *      • Who has access — "Anyone"
  * 8. Click  Deploy  and authorize when prompted.
@@ -49,7 +49,7 @@ var CONFIG = {
   ],
   COL_FOOD_TOKEN: 16,
   COL_EMAIL_SENT: 17,
-  EVENT_NAME: 'Alumni Meet 2026',
+  EVENT_NAME: 'Alumini Meet 2026',
   EVENT_DATE: 'Saturday, 15 August 2026',
   EVENT_TIME: '10:00 AM onwards',
   EVENT_VENUE: 'Main Auditorium & Campus Grounds, University of Excellence',
@@ -115,7 +115,7 @@ function doGet(e) {
     // Otherwise, health check
     return buildResponse_({
       status: 'success',
-      message: 'Alumni Meet 2026 Registration API is live.',
+      message: 'Alumini Meet 2026 Registration API is live.',
       timestamp: new Date().toISOString()
     });
 
