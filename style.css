@@ -1911,3 +1911,81 @@ select option {
   }
 }
 
+
+/* -- Golden Glowing Effects -------------------- */
+
+/* Background Golden Glows */
+body::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+  animation: pulseGlow 8s infinite alternate;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -20%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(193, 155, 108, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+  animation: pulseGlow 10s infinite alternate-reverse;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Enhanced Golden Glow for Form Container and Invitation Card */
+.form-container,
+.invitation-card.light-card {
+  box-shadow: 
+    0 10px 40px rgba(183, 143, 75, 0.15), 
+    0 0 20px rgba(212, 175, 55, 0.2), 
+    inset 0 0 20px rgba(255,255,255,0.8);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-container::before,
+.invitation-card.light-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #d4af37, #fdfcf0, #d4af37, transparent);
+  animation: borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Enhancing Submit Button Golden Glow */
+.submit-btn {
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  animation: buttonPulse 2s infinite;
+}
+
+@keyframes buttonPulse {
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
