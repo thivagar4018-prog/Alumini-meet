@@ -4,23 +4,23 @@
 
 /* ── CSS Variables ────────────────────────────────────────────────── */
 :root {
-  --bg-primary: #050816;
-  --bg-secondary: #0f1729;
-  --bg-card: rgba(15, 23, 42, 0.7);
-  --bg-card-solid: #0f172a;
-  --gold-primary: #f4c430;
-  --gold-secondary: #d4a574;
-  --gold-gradient: linear-gradient(135deg, #f4c430, #d4a574);
-  --gold-gradient-hover: linear-gradient(135deg, #f7d24b, #dbb48a);
-  --text-primary: #ffffff;
-  --text-secondary: #94a3b8;
+  --bg-primary: #fdfcf0;
+  --bg-secondary: #f4f3e7;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card-solid: #ffffff;
+  --gold-primary: #b78f4b;
+  --gold-secondary: #c19b6c;
+  --gold-gradient: linear-gradient(135deg, #b78f4b, #d4af37);
+  --gold-gradient-hover: linear-gradient(135deg, #c19b6c, #e6c55d);
+  --text-primary: #0a192f;
+  --text-secondary: #475569;
   --text-muted: #64748b;
   --success: #22c55e;
   --error: #ef4444;
-  --border-glass: rgba(244, 196, 48, 0.15);
-  --border-subtle: rgba(148, 163, 184, 0.1);
-  --shadow-gold: 0 0 30px rgba(244, 196, 48, 0.1);
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --border-glass: rgba(183, 143, 75, 0.2);
+  --border-subtle: rgba(15, 23, 42, 0.1);
+  --shadow-gold: 0 4px 20px rgba(183, 143, 75, 0.15);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.05);
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
@@ -1429,5 +1429,246 @@ select option {
 
   .radio-option label {
     padding: 14px 18px;
+  }
+}
+
+/* -- Light Theme Specific Additions (McGrande) -------------------- */
+
+/* Grid Background */
+.light-grid-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  z-index: -1;
+}
+
+/* Light Navbar Overrides */
+.navbar.light-nav {
+  background: rgba(253, 252, 240, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+.navbar.light-nav .logo-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+.light-nav-links {
+  gap: 2rem;
+}
+.light-link {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+}
+.light-link.active {
+  color: var(--gold-primary);
+}
+.light-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold-primary);
+}
+
+/* Light Hero Section Layout */
+.light-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+.hero-content-light {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  z-index: 1;
+}
+
+/* Hero Left Column */
+.hero-left {
+  flex: 1;
+  max-width: 600px;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  color: #0a1128;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -1px;
+}
+.hero-year {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
+  font-style: italic;
+  color: #c19b6c;
+  line-height: 1;
+  margin: 0 0 1rem 0;
+}
+.hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #c19b6c;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+.hero-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+/* Vertical Stacked Details */
+.hero-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.hero-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.hero-detail .detail-icon {
+  font-size: 1.5rem;
+  color: #c19b6c;
+  background: rgba(193, 155, 108, 0.1);
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+}
+.detail-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.detail-text .detail-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.detail-text .detail-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0a1128;
+}
+
+/* Light Countdown Timer */
+.countdown-timer-light {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.05);
+  max-width: fit-content;
+}
+.cd-box-light {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+.cd-box-light span {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #c19b6c;
+  line-height: 1;
+}
+.cd-box-light small {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+}
+.cd-colon-light {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #94a3b8;
+  margin-top: -15px;
+}
+
+/* Hero Right Placeholder Logo */
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-placeholder {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 2 / 1;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-inner {
+  text-align: center;
+  line-height: 1;
+}
+.logo-inner .ph-mc {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #0a1128;
+}
+.logo-inner .ph-year {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #c19b6c;
+}
+
+@media (max-width: 900px) {
+  .hero-content-light {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+  .hero-details {
+    align-items: center;
+  }
+  .hero-detail {
+    text-align: left;
+  }
+  .countdown-timer-light {
+    margin: 0 auto;
   }
 }

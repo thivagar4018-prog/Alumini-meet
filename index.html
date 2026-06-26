@@ -13,14 +13,20 @@
 <body>
 
   <!-- ========== NAVIGATION ========== -->
-  <nav class="navbar" aria-label="Main Navigation">
-    <span class="logo">McGrande 2026</span>
-    <ul class="nav-links" id="navLinks" role="menubar">
-      <li role="none"><a href="#hero" class="nav-link" role="menuitem">Home</a></li>
-      <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
-      <li role="none"><a href="#register" class="nav-link" role="menuitem">Register</a></li>
+  <nav class="navbar light-nav" aria-label="Main Navigation">
+    <span class="logo light-logo">
+      <span class="logo-text">McGrande 2026</span>
+    </span>
+    <ul class="nav-links light-nav-links" id="navLinks" role="menubar">
+      <li role="none"><a href="#hero" class="nav-link light-link active" role="menuitem">Home</a></li>
+      <li role="none"><a href="#about" class="nav-link light-link" role="menuitem">About</a></li>
+      <li role="none"><a href="#highlights" class="nav-link light-link" role="menuitem">Highlights</a></li>
+      <li role="none"><a href="#agenda" class="nav-link light-link" role="menuitem">Agenda</a></li>
+      <li role="none"><a href="#batches" class="nav-link light-link" role="menuitem">Batches</a></li>
+      <li role="none"><a href="#archives" class="nav-link light-link" role="menuitem">Archives & Media ∨</a></li>
+      <li role="none"><a href="#register" class="nav-link light-link" role="menuitem">Register</a></li>
     </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <button class="nav-toggle light-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
@@ -28,64 +34,54 @@
   </nav>
 
   <!-- ========== HERO SECTION ========== -->
-  <section id="hero">
-    <canvas id="particles-canvas" aria-hidden="true"></canvas>
-    <div class="hero-content">
-      <div class="invitation-card">
+  <section id="hero" class="light-hero">
+    <div class="light-grid-bg"></div>
+    <div class="hero-content-light">
+      
+      <div class="hero-left">
+        <h1 class="hero-title">McGrande</h1>
+        <h2 class="hero-year">2026</h2>
+        <h3 class="hero-subtitle">MEGA GRAND ALUMNI REUNION &mdash; THE JOURNEY RETURNS HOME</h3>
+        <p class="hero-desc">
+          A milestone reunion of Mepco Alumni. Join us as we celebrate our shared heritage, honor our achievements, and forge new paths for the future.
+        </p>
 
-        <div class="ornament top" aria-hidden="true">
-          <svg class="ornament-svg" viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,10 Q50,0 100,10 Q150,20 200,10" stroke="currentColor" fill="none" stroke-width="1"/>
-            <circle cx="100" cy="10" r="3" fill="currentColor"/>
-            <circle cx="80" cy="8" r="1.5" fill="currentColor"/>
-            <circle cx="120" cy="12" r="1.5" fill="currentColor"/>
-          </svg>
-        </div>
-
-        <span class="event-badge">You're Cordially Invited</span>
-
-        <h1>McGrande<br><span class="highlight">2026</span></h1>
-
-        <div class="event-details">
-          <div class="detail-item">
+        <div class="hero-details">
+          <div class="hero-detail">
             <span class="detail-icon" aria-hidden="true">📅</span>
-            <span class="detail-value">Saturday, 18 July 2026</span>
-            <span class="detail-label">Date</span>
+            <div class="detail-text">
+              <span class="detail-label">DATE</span>
+              <span class="detail-value">18 July 2026, Saturday</span>
+            </div>
           </div>
-          <div class="detail-item">
-            <span class="detail-icon" aria-hidden="true">🕐</span>
-            <span class="detail-value">10:00 AM Onwards</span>
-            <span class="detail-label">Time</span>
-          </div>
-          <div class="detail-item">
+          <div class="hero-detail">
             <span class="detail-icon" aria-hidden="true">📍</span>
-            <span class="detail-value" style="font-size:0.9rem">Mepco Schlenk Engineering College, Sivakasi</span>
-            <span class="detail-label">Venue</span>
+            <div class="detail-text">
+              <span class="detail-label">VENUE</span>
+              <span class="detail-value">Mepco Schlenk Engineering College, Sivakasi</span>
+            </div>
           </div>
         </div>
 
-        <div class="countdown-timer" id="countdown">
-          <div class="cd-box"><span id="cd-days">--</span><small>Days</small></div>
-          <div class="cd-colon">:</div>
-          <div class="cd-box"><span id="cd-hours">--</span><small>Hours</small></div>
-          <div class="cd-colon">:</div>
-          <div class="cd-box"><span id="cd-mins">--</span><small>Mins</small></div>
-          <div class="cd-colon">:</div>
-          <div class="cd-box"><span id="cd-secs">--</span><small>Secs</small></div>
+        <div class="countdown-timer-light" id="countdown">
+          <div class="cd-box-light"><span id="cd-days">--</span><small>DAYS</small></div>
+          <div class="cd-colon-light">:</div>
+          <div class="cd-box-light"><span id="cd-hours">--</span><small>HOURS</small></div>
+          <div class="cd-colon-light">:</div>
+          <div class="cd-box-light"><span id="cd-mins">--</span><small>MINS</small></div>
+          <div class="cd-colon-light">:</div>
+          <div class="cd-box-light"><span id="cd-secs">--</span><small>SECS</small></div>
         </div>
-
-        <div class="ornament bottom" aria-hidden="true">
-          <svg class="ornament-svg" viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,10 Q50,0 100,10 Q150,20 200,10" stroke="currentColor" fill="none" stroke-width="1"/>
-            <circle cx="100" cy="10" r="3" fill="currentColor"/>
-            <circle cx="80" cy="8" r="1.5" fill="currentColor"/>
-            <circle cx="120" cy="12" r="1.5" fill="currentColor"/>
-          </svg>
-        </div>
-
-        <a href="#register" class="cta-btn" id="cta-register">Register Now <span class="arrow">→</span></a>
-
       </div>
+      
+      <div class="hero-right">
+        <div class="logo-placeholder">
+          <div class="logo-inner">
+            <span class="ph-mc">McGrande</span> <span class="ph-year">2026</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
