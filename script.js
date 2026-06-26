@@ -347,13 +347,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return isValid;
   }
 
-  // Next / Previous button listeners
-  
-  });
-
-  
-  });
-
   // Remove error class on input/change for form fields
   const formFields = [
     'fullName', 'email', 'gender', 'phone', 'whatsapp',
