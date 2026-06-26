@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alumni Meet 2026 — Grand Reunion Invitation</title>
+  <title>McGrande 2026 - Grand Reunion</title>
   <meta name="description" content="You're invited to the Grand Alumni Reunion 2026! Register now to reconnect with classmates and relive cherished memories.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 
   <!-- ========== NAVIGATION ========== -->
   <nav class="navbar" aria-label="Main Navigation">
-    <span class="logo">🎓 Alumni Meet</span>
+    <span class="logo">McGrande 2026</span>
     <ul class="nav-links" id="navLinks" role="menubar">
       <li role="none"><a href="#hero" class="nav-link" role="menuitem">Home</a></li>
       <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
@@ -44,7 +44,7 @@
 
         <span class="event-badge">You're Cordially Invited</span>
 
-        <h1>Grand Alumni<br><span class="highlight">Reunion 2026</span></h1>
+        <h1>McGrande<br><span class="highlight">2026</span></h1>
 
         <div class="event-details">
           <div class="detail-item">
@@ -412,35 +412,81 @@
     </div>
   </div>
 
+        </form>
+    </div>
+  </section>
+
+  <!-- ========== SUCCESS MODAL ========== -->
+  <div id="successModal" style="display:none" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-overlay">
+      <div class="modal-content">
+
+        <div class="success-animation">
+          <div class="checkmark-circle">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark-circle-bg" cx="26" cy="26" r="25" fill="none"/>
+              <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+        </div>
+
+        <h2 id="modalTitle">Registration Successful! 🎉</h2>
+        <p>Thank you for registering. Your food token has been sent to your email.</p>
+
+        <div class="token-display">
+          <span class="token-label">Your Food Token</span>
+          <span class="token-value" id="displayToken">—</span>
+          <span class="token-persons" id="displayPersons">—</span>
+        </div>
+
+        <p class="modal-note">📧 A confirmation email with your food token has been sent. Please show this token at the food counter during the event.</p>
+
+        <button class="btn-close-modal" id="closeModal">Close</button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== LOADING OVERLAY ========== -->
+  <div id="loadingOverlay" style="display:none" role="alert" aria-live="assertive">
+    <div class="loading-content">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Submitting your registration...</p>
+    </div>
+  </div>
+
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="footer-content">
 
       <div class="footer-section">
-        <span class="logo">🎓 Alumni Meet</span>
-        <p>Bringing together generations of alumni for a night of celebration, nostalgia, and renewed connections at the Grand Alumni Reunion 2026.</p>
+        <span class="logo">McGrande 2026</span>
+        <p>Celebrating the legacy of Mepco Engineering College alumni worldwide in a thriving hub of brilliance, tradition, and future visions.</p>
       </div>
 
       <div class="footer-section">
-        <h4>Quick Links</h4>
+        <h4>QUICK LINKS</h4>
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#register">Register</a></li>
+          <li><a href="#hero">About the Event</a></li>
+          <li><a href="#about">Reunion Highlights</a></li>
+          <li><a href="#register">Batch Timeline</a></li>
+          <li><a href="#gallery">Gallery</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
-        <h4>Contact Us</h4>
-        <ul>
-          <li>📧 <a href="mailto:alumni@university.edu">alumni@university.edu</a></li>
-          <li>📞 <a href="tel:+919876543210">+91 98765 43210</a></li>
+        <h4>REACH US</h4>
+        <h5 style="margin-bottom: 10px; color: #fff;">MEPCO Alumni Association</h5>
+        <ul style="list-style: none; padding: 0;">
+          <li style="display: flex; align-items: flex-start; gap: 10px;">📍 <span>Mepco Schlenk Engineering College campus,<br>Tamil Nadu, India</span></li>
+          <li style="display: flex; align-items: center; gap: 10px;">📞 <a href="tel:+919003024425">+91 90030 24425</a></li>
+          <li style="display: flex; align-items: center; gap: 10px;">📧 <a href="mailto:mcgrade2026@gmail.com">mcgrade2026@gmail.com</a></li>
         </ul>
       </div>
 
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Alumni Association. All rights reserved.</p>
+      <p>&copy; 2026 MEPCO Alumni Association. All rights reserved.</p>
     </div>
   </footer>
 

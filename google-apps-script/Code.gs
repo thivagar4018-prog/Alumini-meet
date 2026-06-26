@@ -49,12 +49,12 @@ var CONFIG = {
   ],
   COL_FOOD_TOKEN: 16,
   COL_EMAIL_SENT: 17,
-  EVENT_NAME: 'Alumni Meet 2026',
+  EVENT_NAME: 'McGrande 2026',
   EVENT_DATE: 'Saturday, 18 July 2026',
   EVENT_TIME: '10:00 AM onwards',
   EVENT_VENUE: 'Mepco Schlenk Engineering College, Sivakasi',
-  CONTACT_EMAIL: 'alumni2026@university.edu',
-  CONTACT_PHONE: '+91 98765 43210'
+  CONTACT_EMAIL: 'mcgrade2026@gmail.com',
+  CONTACT_PHONE: '+91 90030 24425'
 };
 
 /* ═══════════════════════════════════════════════════════════════════════════
