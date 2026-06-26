@@ -136,31 +136,11 @@
 
     <div class="form-container">
 
-      <!-- Progress Bar -->
-      <div class="progress-bar" aria-label="Registration progress">
-        <div class="progress-step active" data-step="1">
-          <span class="step-number">1</span>
-          <span class="step-label">Personal</span>
-        </div>
-        <div class="progress-step" data-step="2">
-          <span class="step-number">2</span>
-          <span class="step-label">Academic</span>
-        </div>
-        <div class="progress-step" data-step="3">
-          <span class="step-number">3</span>
-          <span class="step-label">Attendance</span>
-        </div>
-        <div class="progress-step" data-step="4">
-          <span class="step-number">4</span>
-          <span class="step-label">Preferences</span>
-        </div>
-      </div>
-
       <!-- Registration Form -->
       <form id="registrationForm" novalidate>
 
         <!-- Step 1: Personal Information -->
-        <div class="form-step active" data-step="1">
+        <div class="form-section" style="margin-bottom: 40px;">
           <h3>Personal Information</h3>
 
           <div class="form-row">
@@ -217,13 +197,11 @@
             <span class="form-hint">Leave blank if same as phone number</span>
           </div>
 
-          <div class="form-buttons">
-            <button type="button" class="btn-next" id="btnNext1">Next Step <span>→</span></button>
-          </div>
+          
         </div>
 
         <!-- Step 2: Academic Details -->
-        <div class="form-step" data-step="2">
+        <div class="form-section" style="margin-bottom: 40px;">
           <h3>Academic Details</h3>
 
           <div class="form-row">
@@ -311,14 +289,11 @@
             </select>
           </div>
 
-          <div class="form-buttons">
-            <button type="button" class="btn-prev" id="btnPrev2"><span>←</span> Previous</button>
-            <button type="button" class="btn-next" id="btnNext2">Next Step <span>→</span></button>
-          </div>
+          
         </div>
 
         <!-- Step 3: Attendance Details -->
-        <div class="form-step" data-step="3">
+        <div class="form-section" style="margin-bottom: 40px;">
           <h3>Attendance Details</h3>
 
           <div class="form-group">
@@ -356,14 +331,11 @@
             </div>
           </div>
 
-          <div class="form-buttons">
-            <button type="button" class="btn-prev" id="btnPrev3"><span>←</span> Previous</button>
-            <button type="button" class="btn-next" id="btnNext3">Next Step <span>→</span></button>
-          </div>
+          
         </div>
 
         <!-- Step 4: Food Preference -->
-        <div class="form-step" data-step="4">
+        <div class="form-section" style="margin-bottom: 40px;">
           <h3>Food Preference</h3>
 
           <div class="radio-group">
@@ -390,16 +362,14 @@
             </div>
           </div>
 
-          <div class="form-buttons">
-            <button type="button" class="btn-prev" id="btnPrev4"><span>←</span> Previous</button>
-            <button type="submit" class="btn-submit" id="submitBtn">
-              <span class="btn-text">Submit Registration</span>
-              <span class="btn-loader" style="display:none" aria-hidden="true"></span>
-            </button>
-          </div>
+          
         </div>
 
-      </form>
+      
+          <div class="form-buttons" style="justify-content: center; margin-top: 20px;">
+            <button type="submit" class="btn-submit">Submit Registration <span>✓</span></button>
+          </div>
+        </form>
     </div>
   </section>
 

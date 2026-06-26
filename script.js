@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─────────────────────────────────────────────
   // 4. Multi-Step Form Management
   // ─────────────────────────────────────────────
-  let currentStep = 1;
+  
   const totalSteps = 4;
 
   function showStep(stepNumber, shouldScroll = true) {
@@ -348,22 +348,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Next / Previous button listeners
-  document.querySelectorAll('.btn-next').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (validateStep(currentStep)) {
-        if (currentStep < totalSteps) {
-          showStep(currentStep + 1);
-        }
-      }
-    });
+  
   });
 
-  document.querySelectorAll('.btn-prev').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (currentStep > 1) {
-        showStep(currentStep - 1);
-      }
-    });
+  
   });
 
   // Remove error class on input/change for form fields
@@ -483,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
     registrationForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      if (!validateStep(4)) return;
+      if (!validateAll()) return;
 
       const loadingOverlay = document.getElementById('loadingOverlay');
       const submitBtn = registrationForm.querySelector('button[type="submit"]');
@@ -776,7 +764,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Go back to step 1
       calculateTotalPersons();
-      showStep(1);
+      
     });
   }
 
@@ -837,5 +825,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─────────────────────────────────────────────
   // Initialize: show step 1 on load
   // ─────────────────────────────────────────────
-  showStep(1, false);
+  
 });
