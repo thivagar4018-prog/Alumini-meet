@@ -797,6 +797,44 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ─────────────────────────────────────────────
+  // Countdown Timer
+  // ─────────────────────────────────────────────
+  const cdDays = document.getElementById('cd-days');
+  const cdHours = document.getElementById('cd-hours');
+  const cdMins = document.getElementById('cd-mins');
+  const cdSecs = document.getElementById('cd-secs');
+
+  if (cdDays && cdHours && cdMins && cdSecs) {
+    const eventDate = new Date('July 18, 2026 10:00:00').getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        cdDays.innerText = '00';
+        cdHours.innerText = '00';
+        cdMins.innerText = '00';
+        cdSecs.innerText = '00';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+      cdDays.innerText = days.toString().padStart(2, '0');
+      cdHours.innerText = hours.toString().padStart(2, '0');
+      cdMins.innerText = mins.toString().padStart(2, '0');
+      cdSecs.innerText = secs.toString().padStart(2, '0');
+    };
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  // ─────────────────────────────────────────────
   // Initialize: show step 1 on load
   // ─────────────────────────────────────────────
   showStep(1, false);

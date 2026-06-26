@@ -50,9 +50,9 @@ var CONFIG = {
   COL_FOOD_TOKEN: 16,
   COL_EMAIL_SENT: 17,
   EVENT_NAME: 'Alumni Meet 2026',
-  EVENT_DATE: 'Saturday, 15 August 2026',
+  EVENT_DATE: 'Saturday, 18 July 2026',
   EVENT_TIME: '10:00 AM onwards',
-  EVENT_VENUE: 'Main Auditorium & Campus Grounds, University of Excellence',
+  EVENT_VENUE: 'Mepco Schlenk Engineering College, Sivakasi',
   CONTACT_EMAIL: 'alumni2026@university.edu',
   CONTACT_PHONE: '+91 98765 43210'
 };
