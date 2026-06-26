@@ -699,14 +699,15 @@ input[type="date"],
 select {
   width: 100%;
   padding: 14px 16px;
-  background: rgba(15, 23, 42, 0.5);
-  border: 1px solid rgba(148, 163, 184, 0.15);
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.15);
   border-radius: var(--radius-md);
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 0.95rem;
   transition: var(--transition-smooth);
   outline: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .phone-input-group {
@@ -732,16 +733,14 @@ input::placeholder {
 input:focus,
 select:focus {
   border-color: var(--gold-primary);
-  box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
-  background: rgba(15, 23, 42, 0.8);
+  box-shadow: 0 0 0 3px rgba(183, 143, 75, 0.2);
+  background: #ffffff;
 }
 
 input[readonly] {
-  background: rgba(244, 196, 48, 0.05);
-  border-color: rgba(244, 196, 48, 0.15);
-  color: var(--gold-primary);
-  font-weight: 600;
-  cursor: default;
+  background: #f1f5f9;
+  cursor: not-allowed;
+  opacity: 0.8;
 }
 
 select {
@@ -1680,3 +1679,52 @@ select option {
   object-fit: contain;
   filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
 }
+
+/* -- CSS Logo Styling & Glowing Effects -------------------- */
+
+.mcgrande-logo-text {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+}
+
+.mc-text, .year-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  /* Dark blue fill with a gold stroke effect using text-shadow */
+  color: #1a2f4c;
+  text-shadow: 
+    -1px -1px 0 #d4af37,
+     1px -1px 0 #d4af37,
+    -1px  1px 0 #d4af37,
+     1px  1px 0 #d4af37,
+     0px  3px 0 #c19b6c, /* slight 3d effect */
+     0 0 20px rgba(212, 175, 55, 0.6); /* glow */
+}
+
+.mc-text {
+  font-size: 5rem;
+  letter-spacing: -2px;
+}
+
+.year-text {
+  font-size: 4rem;
+  font-style: italic;
+}
+
+/* Glowing effects for hero title */
+.hero-title, .hero-year {
+  text-shadow: 0 0 25px rgba(183, 143, 75, 0.3);
+}
+
+/* Add a glowing animation to primary buttons */
+.cta-btn {
+  animation: subtleGlow 3s infinite alternate;
+}
+
+@keyframes subtleGlow {
+  0% { box-shadow: 0 4px 15px rgba(183, 143, 75, 0.2); }
+  100% { box-shadow: 0 4px 25px rgba(183, 143, 75, 0.6); }
+}
+
