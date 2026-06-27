@@ -1,5 +1,5 @@
 // ⚠️ Your deployed Google Apps Script Web App URL
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwfmHy0eHaPy-FxULgfCMaLOSB_dq3WEkLLvk4g9UntPpKxvTLVSZySYcTyzPfOxUJC/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw-NSg9y1GAMbDUvXRFXDEMVyd72BPFoT4W31AQlVkCdSeaSMwVW1H8jblrYFxI7fDB/exec';
 
 document.addEventListener('DOMContentLoaded', () => {
   // ─────────────────────────────────────────────
