@@ -160,49 +160,11 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label for="periodOfStudy">Year / Batch *</label>
-              <select id="periodOfStudy" name="periodOfStudy" required>
-                <option value="">Select Batch</option>
-                <option value="2022 - 2026">2022 - 2026</option>
-                <option value="2021 - 2025">2021 - 2025</option>
-                <option value="2020 - 2024">2020 - 2024</option>
-                <option value="2019 - 2023">2019 - 2023</option>
-                <option value="2018 - 2022">2018 - 2022</option>
-                <option value="2017 - 2021">2017 - 2021</option>
-                <option value="2016 - 2020">2016 - 2020</option>
-                <option value="2015 - 2019">2015 - 2019</option>
-                <option value="2014 - 2018">2014 - 2018</option>
-                <option value="2013 - 2017">2013 - 2017</option>
-                <option value="2012 - 2016">2012 - 2016</option>
-                <option value="2011 - 2015">2011 - 2015</option>
-                <option value="2010 - 2014">2010 - 2014</option>
-                <option value="2009 - 2013">2009 - 2013</option>
-                <option value="2008 - 2012">2008 - 2012</option>
-                <option value="2007 - 2011">2007 - 2011</option>
-                <option value="2006 - 2010">2006 - 2010</option>
-                <option value="2005 - 2009">2005 - 2009</option>
-                <option value="2004 - 2008">2004 - 2008</option>
-                <option value="2003 - 2007">2003 - 2007</option>
-                <option value="2002 - 2006">2002 - 2006</option>
-                <option value="2001 - 2005">2001 - 2005</option>
-                <option value="2000 - 2004">2000 - 2004</option>
-                <option value="1999 - 2003">1999 - 2003</option>
-                <option value="1998 - 2002">1998 - 2002</option>
-                <option value="1997 - 2001">1997 - 2001</option>
-                <option value="1996 - 2000">1996 - 2000</option>
-                <option value="1995 - 1999">1995 - 1999</option>
-                <option value="1994 - 1998">1994 - 1998</option>
-                <option value="1993 - 1997">1993 - 1997</option>
-                <option value="1992 - 1996">1992 - 1996</option>
-                <option value="1991 - 1995">1991 - 1995</option>
-                <option value="1990 - 1994">1990 - 1994</option>
-                <option value="1989 - 1993">1989 - 1993</option>
-                <option value="1988 - 1992">1988 - 1992</option>
-                <option value="1987 - 1991">1987 - 1991</option>
-                <option value="1986 - 1990">1986 - 1990</option>
-                <option value="1985 - 1989">1985 - 1989</option>
-                <option value="1984 - 1988">1984 - 1988</option>
-              </select>
+              <label>Year / Batch *</label>
+              <div style="display: flex; gap: 10px;">
+                <input type="number" id="batchFrom" name="batchFrom" min="1984" max="2030" placeholder="From (e.g. 2022)" required style="width: 100%;">
+                <input type="number" id="batchTo" name="batchTo" min="1988" max="2034" placeholder="To (e.g. 2026)" required style="width: 100%;">
+              </div>
             </div>
             <div class="form-group">
               <label for="degreeStudy">Degree *</label>

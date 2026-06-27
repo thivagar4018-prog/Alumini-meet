@@ -277,15 +277,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (stepNumber === 2) {
-      const periodOfStudy = document.getElementById('periodOfStudy');
+      const batchFrom = document.getElementById('batchFrom');
+      const batchTo = document.getElementById('batchTo');
       const degreeStudy = document.getElementById('degreeStudy');
       const courseStudy = document.getElementById('courseStudy');
 
-      if (!periodOfStudy || !periodOfStudy.value) {
-        setFieldError('periodOfStudy', true);
+      if (!batchFrom || !batchFrom.value || !batchTo || !batchTo.value) {
+        setFieldError('batchFrom', true);
         isValid = false;
       } else {
-        setFieldError('periodOfStudy', false);
+        setFieldError('batchFrom', false);
       }
 
       if (!degreeStudy || !degreeStudy.value) {
@@ -350,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Remove error class on input/change for form fields
   const formFields = [
     'fullName', 'email', 'gender', 'phone', 'whatsapp',
-    'periodOfStudy', 'degreeStudy', 'courseStudy', 'participationType',
+    'batchFrom', 'batchTo', 'degreeStudy', 'courseStudy', 'participationType',
     'spouseName', 'numChildren', 'numGuests'
   ];
 
@@ -484,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
         whatsapp: (document.getElementById('whatsapp')?.value || '').trim() 
                   ? ((document.getElementById('whatsappCode')?.value || '+91') + ' ' + (document.getElementById('whatsapp')?.value || '').trim()).trim()
                   : ((document.getElementById('phoneCode')?.value || '+91') + ' ' + (document.getElementById('phone')?.value || '').trim()).trim(),
-        periodOfStudy: document.getElementById('periodOfStudy')?.value || '',
+        periodOfStudy: (document.getElementById('batchFrom')?.value && document.getElementById('batchTo')?.value) ? `${document.getElementById('batchFrom').value} - ${document.getElementById('batchTo').value}` : '',
         degreeStudy: (document.getElementById('degreeStudy')?.value || '').trim(),
         courseStudy: document.getElementById('courseStudy')?.value || '',
         participationType: document.getElementById('participationType')?.value || '',
