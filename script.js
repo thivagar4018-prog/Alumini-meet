@@ -305,7 +305,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (stepNumber === 3) {
-      // Family attendance validation removed
+      const participationType = document.getElementById('participationType');
+
+      if (!participationType || !participationType.value) {
+        setFieldError('participationType', true);
+        isValid = false;
+      } else {
+        setFieldError('participationType', false);
+      }
     }
 
     if (stepNumber === 4) {
@@ -333,7 +340,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Remove error class on input/change for form fields
   const formFields = [
     'fullName', 'email', 'gender', 'phone', 'whatsapp',
-    'batchFrom', 'batchTo', 'degreeStudy', 'courseStudy'
+    'batchFrom', 'batchTo', 'degreeStudy', 'courseStudy', 'participationType',
+    'numChildren', 'numGuests'
   ];
 
   formFields.forEach(id => {
@@ -358,7 +366,77 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ─────────────────────────────────────────────
-  // Family fields conditional logic and auto-calculation removed
+  // 5. Conditional Family Fields
+  // ─────────────────────────────────────────────
+  const participationType = document.getElementById('participationType');
+  const familyFields = document.getElementById('familyFields');
+
+  if (participationType && familyFields) {
+    participationType.addEventListener('change', () => {
+      if (participationType.value === 'family') {
+        familyFields.style.display = 'block';
+        void familyFields.offsetWidth;
+        familyFields.style.maxHeight = familyFields.scrollHeight + 'px';
+        familyFields.style.opacity = '1';
+        familyFields.classList.add('visible');
+      } else {
+        familyFields.style.maxHeight = '0';
+        familyFields.style.opacity = '0';
+        familyFields.classList.remove('visible');
+
+        const numChildren = document.getElementById('numChildren');
+        if (numChildren) numChildren.value = '0';
+
+        setTimeout(() => {
+          if (!familyFields.classList.contains('visible')) {
+            familyFields.style.display = 'none';
+          }
+        }, 400);
+      }
+      calculateTotalPersons();
+    });
+  }
+
+  // ─────────────────────────────────────────────
+  // 6. Auto-Calculate Total Persons
+  // ─────────────────────────────────────────────
+  function calculateTotalPersons() {
+    let total = 1; // The registrant
+
+    const pType = document.getElementById('participationType');
+    const numChildren = document.getElementById('numChildren');
+    const numGuests = document.getElementById('numGuests');
+    const totalPersons = document.getElementById('totalPersons');
+
+    if (pType && pType.value === 'family') {
+      total += 1; // Count spouse
+      if (numChildren) {
+        total += parseInt(numChildren.value) || 0;
+      }
+    }
+
+    if (numGuests) {
+      total += parseInt(numGuests.value) || 0;
+    }
+
+    if (totalPersons) {
+      totalPersons.value = total;
+    }
+  }
+
+  // Attach listeners for auto-calculation
+  ['participationType', 'numChildren', 'numGuests'].forEach(id => {
+    const field = document.getElementById(id);
+    if (field) {
+      const events = field.tagName === 'SELECT' ? ['change'] : ['input', 'change'];
+      events.forEach(evt => {
+        field.addEventListener(evt, calculateTotalPersons);
+      });
+    }
+  });
+
+  // Initial calculation
+  calculateTotalPersons();
 
   // ─────────────────────────────────────────────
   // 7. Form Submission
@@ -392,7 +470,10 @@ document.addEventListener('DOMContentLoaded', () => {
         periodOfStudy: (document.getElementById('batchFrom')?.value && document.getElementById('batchTo')?.value) ? `${document.getElementById('batchFrom').value} - ${document.getElementById('batchTo').value}` : '',
         degreeStudy: (document.getElementById('degreeStudy')?.value || '').trim(),
         courseStudy: document.getElementById('courseStudy')?.value || '',
-        // family attendance fields removed
+        participationType: document.getElementById('participationType')?.value || '',
+        numChildren: parseInt(document.getElementById('numChildren')?.value) || 0,
+        numGuests: parseInt(document.getElementById('numGuests')?.value) || 0,
+        totalPersons: parseInt(document.getElementById('totalPersons')?.value) || 1,
         foodPreference: document.querySelector('input[name="foodPreference"]:checked')?.value || '',
       };
 
@@ -430,7 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const displayPersons = document.getElementById('displayPersons');
         if (displayPersons) {
-          displayPersons.textContent = `Valid for 1 person`;
+          displayPersons.textContent = `Valid for ${result.totalPersons || formData.totalPersons} person(s)`;
         }
 
         launchConfetti();
@@ -645,7 +726,14 @@ document.addEventListener('DOMContentLoaded', () => {
       // Reset the form
       if (registrationForm) registrationForm.reset();
 
-      // Family fields visibility reset removed
+      // Reset family fields visibility
+      const familyFieldsEl = document.getElementById('familyFields');
+      if (familyFieldsEl) {
+        familyFieldsEl.style.display = 'none';
+        familyFieldsEl.style.maxHeight = '0';
+        familyFieldsEl.style.opacity = '0';
+        familyFieldsEl.classList.remove('visible');
+      }
 
       // Re-enable submit button
       const submitBtn = registrationForm?.querySelector('button[type="submit"]');
@@ -654,7 +742,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Clear all error states
       document.querySelectorAll('.form-group.error').forEach(fg => fg.classList.remove('error'));
 
-      // Auto-calculation removed
+      // Recalculate totals
+      calculateTotalPersons();
       
     });
   }
