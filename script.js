@@ -464,7 +464,11 @@ document.addEventListener('DOMContentLoaded', () => {
     registrationForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      if (!validateAll()) return;
+      const isValid1 = validateStep(1);
+      const isValid2 = validateStep(2);
+      const isValid3 = validateStep(3);
+      const isValid4 = validateStep(4);
+      if (!(isValid1 && isValid2 && isValid3 && isValid4)) return;
 
       const loadingOverlay = document.getElementById('loadingOverlay');
       const submitBtn = registrationForm.querySelector('button[type="submit"]');
