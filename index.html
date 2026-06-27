@@ -390,7 +390,7 @@
         </div>
 
         <h2 id="modalTitle">Registration Successful! 🎉</h2>
-        <p>Thank you for registering. Your food token has been sent to your email.</p>
+        <p>Thank you for registering. Your food token has been sent to your email at <strong>mcgrade2026@gmail.com</strong>.</p>
 
         <div class="token-display">
           <span class="token-label">Your Food Token</span>
@@ -398,9 +398,20 @@
           <span class="token-persons" id="displayPersons">—</span>
         </div>
 
+        <!-- QR Code display -->
+        <div id="qrContainer" style="margin: 16px auto; text-align: center; display:none;">
+          <img id="qrImage" src="" alt="QR Code" style="width:160px;height:160px;border-radius:10px;border:2px solid #d4af37;">
+        </div>
+
         <p class="modal-note">📧 A confirmation email with your food token has been sent. Please show this token at the food counter during the event.</p>
 
-        <button class="btn-close-modal" id="closeModal">Close</button>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:8px;">
+          <button class="btn-download-token" id="downloadTokenBtn" style="display:none;">⬇ Download Token</button>
+          <button class="btn-close-modal" id="closeModal">Close</button>
+        </div>
+
+        <!-- Hidden canvas used to generate the downloadable token image -->
+        <canvas id="tokenCanvas" style="display:none;"></canvas>
 
       </div>
     </div>
@@ -418,36 +429,7 @@
     </div>
   </section>
 
-  <!-- ========== SUCCESS MODAL ========== -->
-  <div id="successModal" style="display:none" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-overlay">
-      <div class="modal-content">
-
-        <div class="success-animation">
-          <div class="checkmark-circle">
-            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-              <circle class="checkmark-circle-bg" cx="26" cy="26" r="25" fill="none"/>
-              <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-            </svg>
-          </div>
-        </div>
-
-        <h2 id="modalTitle">Registration Successful! 🎉</h2>
-        <p>Thank you for registering. Your food token has been sent to your email.</p>
-
-        <div class="token-display">
-          <span class="token-label">Your Food Token</span>
-          <span class="token-value" id="displayToken">—</span>
-          <span class="token-persons" id="displayPersons">—</span>
-        </div>
-
-        <p class="modal-note">📧 A confirmation email with your food token has been sent. Please show this token at the food counter during the event.</p>
-
-        <button class="btn-close-modal" id="closeModal">Close</button>
-
-      </div>
-    </div>
-  </div>
+  <!-- Second modal removed — only one successModal should exist -->
 
   <!-- ========== LOADING OVERLAY ========== -->
   <div id="loadingOverlay" style="display:none" role="alert" aria-live="assertive">

@@ -514,6 +514,90 @@ document.addEventListener('DOMContentLoaded', () => {
           displayPersons.textContent = `Valid for ${result.totalPersons || formData.totalPersons} person(s)`;
         }
 
+        // Show QR Code in modal
+        const foodToken = result.foodToken || '';
+        const qrContainer = document.getElementById('qrContainer');
+        const qrImg = document.getElementById('qrImage');
+        if (foodToken && qrContainer && qrImg) {
+          const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(foodToken)}&size=200`;
+          qrImg.src = qrUrl;
+          qrContainer.style.display = 'block';
+        }
+
+        // Generate downloadable token image using Canvas
+        const downloadBtn = document.getElementById('downloadTokenBtn');
+        if (foodToken && downloadBtn) {
+          downloadBtn.style.display = 'inline-block';
+          downloadBtn.onclick = () => {
+            const canvas = document.getElementById('tokenCanvas');
+            canvas.width = 600;
+            canvas.height = 380;
+            const ctx = canvas.getContext('2d');
+
+            // Background
+            ctx.fillStyle = '#1a2f4c';
+            ctx.fillRect(0, 0, 600, 380);
+
+            // Gold border
+            ctx.strokeStyle = '#d4af37';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(10, 10, 580, 360);
+
+            // Title
+            ctx.fillStyle = '#d4af37';
+            ctx.font = 'bold 28px serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Grand Alumni Reunion 2026', 300, 60);
+
+            // Subtitle
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '18px sans-serif';
+            ctx.fillText('Mepco Schlenk Engineering College', 300, 95);
+
+            // Divider
+            ctx.strokeStyle = '#d4af37';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(50, 115);
+            ctx.lineTo(550, 115);
+            ctx.stroke();
+
+            // Food Token label
+            ctx.fillStyle = '#d4af37';
+            ctx.font = 'bold 16px sans-serif';
+            ctx.fillText('FOOD TOKEN', 300, 150);
+
+            // Token value
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 40px monospace';
+            ctx.fillText(foodToken, 300, 205);
+
+            // Name
+            ctx.fillStyle = '#aaaaaa';
+            ctx.font = '16px sans-serif';
+            ctx.fillText(`Name: ${formData.fullName || ''}`, 300, 250);
+
+            // Person count
+            ctx.fillText(displayPersons ? displayPersons.textContent : '', 300, 280);
+
+            // Event date
+            ctx.fillStyle = '#d4af37';
+            ctx.font = '14px sans-serif';
+            ctx.fillText('17, 18 July 2026  |  10:00 AM Onwards', 300, 320);
+
+            // Footer note
+            ctx.fillStyle = '#888888';
+            ctx.font = '12px sans-serif';
+            ctx.fillText('Please present this token at the food counter during the event.', 300, 355);
+
+            // Trigger download
+            const link = document.createElement('a');
+            link.download = `FoodToken-${foodToken}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+          };
+        }
+
         launchConfetti();
       } catch (error) {
         console.error('Registration error:', error);

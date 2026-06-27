@@ -2009,3 +2009,21 @@ body::after {
     font-size: 0.7rem;
   }
 }
+
+/* -- Download Token Button ------------------- */
+.btn-download-token {
+  background: linear-gradient(135deg, #d4af37, #f4c430);
+  color: #1a2f4c;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+}
+.btn-download-token:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
