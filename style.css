@@ -1989,3 +1989,23 @@ body::after {
   100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
 }
 
+
+/* -- Mobile Responsive Fix for Countdown Timer -------------------- */
+@media (max-width: 500px) {
+  .countdown-timer-light {
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .cd-box-light {
+    min-width: 40px;
+  }
+  .cd-box-light span {
+    font-size: 1.8rem;
+  }
+  .cd-box-light p {
+    font-size: 0.7rem;
+  }
+}
