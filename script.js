@@ -583,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Event date
             ctx.fillStyle = '#d4af37';
             ctx.font = '14px sans-serif';
-            ctx.fillText('17, 18 July 2026  |  10:00 AM Onwards', 300, 320);
+            ctx.fillText('17th July Night  |  18th July 10:00 AM Onwards', 300, 320);
 
             // Footer note
             ctx.fillStyle = '#888888';
